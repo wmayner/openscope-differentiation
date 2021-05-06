@@ -1,0 +1,62 @@
+Parameters:
+{'state_length': 2.0, 'metric': 'euclidean', 'window': 'kaiser', 'window_param': 14.0, 'overlap': 0.5, 'log_frequency': False}
+================================================================================
+Layer
+================================================================================
+Data: data
+Models:
+reduced_model: `log(normalized differentiation)` ~ 1 + layer + stimulus_type + 
+reduced_model:     (1 | session)
+model: `log(normalized differentiation)` ~ 1 + layer * stimulus_type + 
+model:     (1 | session)
+              Df  AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)   
+reduced_model  6 2419 2453.1 -1203.5     2407                            
+model          8 2410 2455.5 -1197.0     2394 12.999      2   0.001504 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + layer * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                    Estimate Std. Error z value  Pr(>z)    
+L2/3:natural - L2/3:artificial <= 0  0.12481    0.02983   4.184 4.3e-05 ***
+L4:natural - L4:artificial <= 0      0.01255    0.02983   0.421   0.709    
+L5:natural - L5:artificial <= 0     -0.02260    0.03088  -0.732   0.987    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)
+
+
+================================================================================
+Area
+================================================================================
+Data: data
+Models:
+reduced_model: `log(normalized differentiation)` ~ 1 + area + stimulus_type + 
+reduced_model:     (1 | session)
+model: `log(normalized differentiation)` ~ 1 + area * stimulus_type + 
+model:     (1 | session)
+              Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)  
+reduced_model  8 2426.8 2472.3 -1205.4   2410.8                           
+model         12 2422.2 2490.6 -1199.1   2398.2 12.552      4    0.01369 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + area * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                Estimate Std. Error z value  Pr(>z)   
+V1:natural - V1:artificial <= 0  0.03314    0.03852   0.860 0.66146   
+LM:natural - LM:artificial <= 0  0.01462    0.03852   0.380 0.88587   
+AL:natural - AL:artificial <= 0  0.12111    0.04085   2.964 0.00756 **
+PM:natural - PM:artificial <= 0 -0.05590    0.03852  -1.451 1.00000   
+AM:natural - AM:artificial <= 0  0.09424    0.03852   2.447 0.03552 * 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)

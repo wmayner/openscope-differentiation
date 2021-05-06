@@ -1,0 +1,60 @@
+================================================================================
+Layer
+================================================================================
+Data: data
+Models:
+reduced_model: `log(mean_centroid_distance)` ~ 1 + layer + stimulus_type + (1 | 
+reduced_model:     session)
+model: `log(mean_centroid_distance)` ~ 1 + layer * stimulus_type + (1 | 
+model:     session)
+              Df     AIC     BIC logLik deviance  Chisq Chi Df Pr(>Chisq)    
+reduced_model  6 -4777.7 -4743.6 2394.9  -4789.7                             
+model          8 -4790.9 -4745.3 2403.4  -4806.9 17.103      2  0.0001933 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(mean_centroid_distance)` ~ 1 + layer * stimulus_type + 
+    (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                     Estimate Std. Error z value   Pr(>z)    
+L2/3:natural - L2/3:artificial <= 0  0.028892   0.005816   4.968 1.02e-06 ***
+L4:natural - L4:artificial <= 0      0.009355   0.005816   1.609    0.153    
+L5:natural - L5:artificial <= 0     -0.005630   0.006020  -0.935    0.995    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)
+
+
+================================================================================
+Area
+================================================================================
+Data: data
+Models:
+reduced_model: `log(mean_centroid_distance)` ~ 1 + area + stimulus_type + (1 | 
+reduced_model:     session)
+model: `log(mean_centroid_distance)` ~ 1 + area * stimulus_type + (1 | 
+model:     session)
+              Df     AIC     BIC logLik deviance  Chisq Chi Df Pr(>Chisq)   
+reduced_model  8 -4774.3 -4728.7 2395.2  -4790.3                            
+model         12 -4780.8 -4712.5 2402.4  -4804.8 14.506      4   0.005843 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(mean_centroid_distance)` ~ 1 + area * stimulus_type + 
+    (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                 Estimate Std. Error z value   Pr(>z)    
+V1:natural - V1:artificial <= 0 0.0018548  0.0075125   0.247  0.92384    
+LM:natural - LM:artificial <= 0 0.0001202  0.0075125   0.016  0.96670    
+AL:natural - AL:artificial <= 0 0.0232009  0.0079682   2.912  0.00895 ** 
+PM:natural - PM:artificial <= 0 0.0014729  0.0075125   0.196  0.93565    
+AM:natural - AM:artificial <= 0 0.0309162  0.0075125   4.115 9.67e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)
