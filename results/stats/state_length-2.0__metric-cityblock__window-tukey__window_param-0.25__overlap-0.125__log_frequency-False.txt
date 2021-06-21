@@ -30,6 +30,22 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 (Adjusted p values reported -- single-step method)
 
 
+	 Simultaneous Confidence Intervals
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + layer * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Quantile = -2.1211
+95% family-wise confidence level
+ 
+
+Linear Hypotheses:
+                                    Estimate lwr      upr     
+L2/3:natural - L2/3:artificial <= 0  0.08648  0.03603      Inf
+L4:natural - L4:artificial <= 0      0.01269 -0.03776      Inf
+L5:natural - L5:artificial <= 0     -0.04018 -0.09241      Inf
+
+
 ================================================================================
 Area
 ================================================================================
@@ -60,3 +76,21 @@ AM:natural - AM:artificial <= 0  0.07144    0.03069   2.328 0.04880 *
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 (Adjusted p values reported -- single-step method)
+
+
+	 Simultaneous Confidence Intervals
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + area * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Quantile = -2.319
+95% family-wise confidence level
+ 
+
+Linear Hypotheses:
+                                Estimate   lwr        upr       
+V1:natural - V1:artificial <= 0  0.0268614 -0.0443024        Inf
+LM:natural - LM:artificial <= 0 -0.0184053 -0.0895691        Inf
+AL:natural - AL:artificial <= 0  0.0948842  0.0194037        Inf
+PM:natural - PM:artificial <= 0 -0.0614592 -0.1326230        Inf
+AM:natural - AM:artificial <= 0  0.0714412  0.0002775        Inf
