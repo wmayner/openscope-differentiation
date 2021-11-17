@@ -1,0 +1,109 @@
+Parameters:
+{'state_length': 10.0, 'metric': 'euclidean', 'window': 'tukey', 'window_param': 0.25, 'overlap': 0.125, 'log_frequency': True}
+
+
+================================================================================
+Layer
+================================================================================
+Data: data
+Models:
+reduced_model: `log(normalized differentiation)` ~ 1 + layer + stimulus_type + 
+reduced_model:     locomotion + normalized_pupil_diameter + (1 | session)
+model: `log(normalized differentiation)` ~ 1 + layer * stimulus_type + 
+model:     locomotion + normalized_pupil_diameter + (1 | session)
+              Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)    
+reduced_model  8 2056.6 2102.1 -1020.3   2040.6                             
+model         10 2033.4 2090.4 -1006.7   2013.4 27.153      2   1.27e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + layer * 
+    stimulus_type + locomotion + normalized_pupil_diameter + 
+    (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                    Estimate Std. Error z value   Pr(>z)    
+L2/3:natural - L2/3:artificial <= 0  0.10268    0.02750   3.734 0.000283 ***
+L4:natural - L4:artificial <= 0     -0.01469    0.02760  -0.532 0.973015    
+L5:natural - L5:artificial <= 0     -0.10276    0.02852  -3.604 1.000000    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)
+
+
+	 Simultaneous Confidence Intervals
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + layer * 
+    stimulus_type + locomotion + normalized_pupil_diameter + 
+    (1 | session), data = data, REML = FALSE)
+
+Quantile = -2.1208
+95% family-wise confidence level
+ 
+
+Linear Hypotheses:
+                                    Estimate lwr      upr     
+L2/3:natural - L2/3:artificial <= 0  0.10268  0.04436      Inf
+L4:natural - L4:artificial <= 0     -0.01469 -0.07323      Inf
+L5:natural - L5:artificial <= 0     -0.10276 -0.16324      Inf
+
+
+================================================================================
+Area
+================================================================================
+Data: data
+Models:
+reduced_model: `log(normalized differentiation)` ~ 1 + area + stimulus_type + 
+reduced_model:     locomotion + normalized_pupil_diameter + (1 | session)
+model: `log(normalized differentiation)` ~ 1 + area * stimulus_type + 
+model:     locomotion + normalized_pupil_diameter + (1 | session)
+              Df    AIC    BIC  logLik deviance Chisq Chi Df Pr(>Chisq)    
+reduced_model 10 2058.7 2115.6 -1019.3   2038.7                            
+model         14 2036.1 2115.8 -1004.0   2008.1 30.56      4  3.763e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + area * 
+    stimulus_type + locomotion + normalized_pupil_diameter + 
+    (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                Estimate Std. Error z value   Pr(>z)    
+V1:natural - V1:artificial <= 0  0.02230    0.03545   0.629 0.783263    
+LM:natural - LM:artificial <= 0 -0.05972    0.03553  -1.681 1.000000    
+AL:natural - AL:artificial <= 0  0.00011    0.03763   0.003 0.967559    
+PM:natural - PM:artificial <= 0 -0.11826    0.03546  -3.335 1.000000    
+AM:natural - AM:artificial <= 0  0.14345    0.03550   4.041 0.000133 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)
+
+
+	 Simultaneous Confidence Intervals
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + area * 
+    stimulus_type + locomotion + normalized_pupil_diameter + 
+    (1 | session), data = data, REML = FALSE)
+
+Quantile = -2.3187
+95% family-wise confidence level
+ 
+
+Linear Hypotheses:
+                                Estimate lwr      upr     
+V1:natural - V1:artificial <= 0  0.02230 -0.05989      Inf
+LM:natural - LM:artificial <= 0 -0.05972 -0.14211      Inf
+AL:natural - AL:artificial <= 0  0.00011 -0.08715      Inf
+PM:natural - PM:artificial <= 0 -0.11826 -0.20048      Inf
+AM:natural - AM:artificial <= 0  0.14345  0.06114      Inf
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+

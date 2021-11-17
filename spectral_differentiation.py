@@ -167,7 +167,7 @@ def spectral_differentiation(
     return distances
 
 
-def dff_differentiation_whole_stimulus(data, state_length, metric, fs, log_frequency):
+def spectral_differentiation_whole_stimulus(data, state_length, metric, fs, log_frequency):
     """Compute spectral differentiation of a set of traces."""
     samples_per_window = state_length * fs
     # Convert from seconds to samples
@@ -209,7 +209,7 @@ def scale_spectra(S, window):
     return scaled
 
 
-def dff_differentiation_whole_stimulus_spectrogram(
+def spectral_differentiation_whole_stimulus_spectrogram(
     data,
     state_length,
     metric,
@@ -275,7 +275,7 @@ def dff_differentiation_whole_stimulus_spectrogram(
     return np.median(distances)
 
 
-def dff_differentiation_single_trial(
+def spectral_differentiation_single_trial(
     group,
     state_length,
     metric,
@@ -291,7 +291,7 @@ def dff_differentiation_single_trial(
     data = data.values
 
     if window:
-        return dff_differentiation_whole_stimulus_spectrogram(
+        return spectral_differentiation_whole_stimulus_spectrogram(
             data,
             state_length=state_length,
             metric=metric,
@@ -302,7 +302,7 @@ def dff_differentiation_single_trial(
             overlap=overlap,
         )
     else:
-        return dff_differentiation_whole_stimulus(
+        return spectral_differentiation_whole_stimulus(
             data,
             state_length=state_length,
             metric=metric,
@@ -311,11 +311,11 @@ def dff_differentiation_single_trial(
         )
 
 
-def compute_dff_differentiation(
-    dff, state_length, metric, fs, log_frequency, window, window_param, overlap
+def compute_spectral_differentiation(
+    data, state_length, metric, fs, log_frequency, window, window_param, overlap
 ):
-    return dff.groupby(["stimulus", "trial"]).apply(
-        dff_differentiation_single_trial,
+    return data.groupby(["stimulus", "trial"]).apply(
+        spectral_differentiation_single_trial,
         state_length=state_length,
         metric=metric,
         fs=fs,

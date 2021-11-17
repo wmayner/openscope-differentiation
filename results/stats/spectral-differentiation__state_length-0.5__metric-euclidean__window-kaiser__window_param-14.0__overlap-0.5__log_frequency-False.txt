@@ -1,0 +1,105 @@
+Parameters:
+{'state_length': 0.5, 'metric': 'euclidean', 'window': 'kaiser', 'window_param': 14.0, 'overlap': 0.5, 'log_frequency': False}
+
+
+================================================================================
+Layer
+================================================================================
+Data: data
+Models:
+reduced_model: `log(normalized differentiation)` ~ 1 + layer + stimulus_type + 
+reduced_model:     (1 | session)
+model: `log(normalized differentiation)` ~ 1 + layer * stimulus_type + 
+model:     (1 | session)
+              Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)   
+reduced_model  6 2143.7 2177.9 -1065.9   2131.7                            
+model          8 2135.2 2180.8 -1059.6   2119.2 12.471      2   0.001959 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + layer * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                    Estimate Std. Error z value   Pr(>z)    
+L2/3:natural - L2/3:artificial <= 0  0.11449    0.02800   4.088 6.52e-05 ***
+L4:natural - L4:artificial <= 0      0.01225    0.02800   0.437    0.700    
+L5:natural - L5:artificial <= 0     -0.02149    0.02899  -0.741    0.988    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)
+
+
+	 Simultaneous Confidence Intervals
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + layer * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Quantile = -2.1211
+95% family-wise confidence level
+ 
+
+Linear Hypotheses:
+                                    Estimate lwr      upr     
+L2/3:natural - L2/3:artificial <= 0  0.11449  0.05509      Inf
+L4:natural - L4:artificial <= 0      0.01225 -0.04715      Inf
+L5:natural - L5:artificial <= 0     -0.02149 -0.08297      Inf
+
+
+================================================================================
+Area
+================================================================================
+Data: data
+Models:
+reduced_model: `log(normalized differentiation)` ~ 1 + area + stimulus_type + 
+reduced_model:     (1 | session)
+model: `log(normalized differentiation)` ~ 1 + area * stimulus_type + 
+model:     (1 | session)
+              Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)   
+reduced_model  8 2152.0 2197.6 -1068.0   2136.0                            
+model         12 2146.5 2214.8 -1061.2   2122.5 13.547      4   0.008892 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + area * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                Estimate Std. Error z value Pr(>z)   
+V1:natural - V1:artificial <= 0  0.03810    0.03614   1.054 0.5455   
+LM:natural - LM:artificial <= 0  0.02040    0.03614   0.564 0.8148   
+AL:natural - AL:artificial <= 0  0.11342    0.03834   2.959 0.0077 **
+PM:natural - PM:artificial <= 0 -0.06406    0.03614  -1.772 1.0000   
+AM:natural - AM:artificial <= 0  0.08254    0.03614   2.284 0.0547 . 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)
+
+
+	 Simultaneous Confidence Intervals
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + area * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Quantile = -2.319
+95% family-wise confidence level
+ 
+
+Linear Hypotheses:
+                                Estimate  lwr       upr      
+V1:natural - V1:artificial <= 0  0.038101 -0.045713       Inf
+LM:natural - LM:artificial <= 0  0.020396 -0.063419       Inf
+AL:natural - AL:artificial <= 0  0.113419  0.024520       Inf
+PM:natural - PM:artificial <= 0 -0.064055 -0.147870       Inf
+AM:natural - AM:artificial <= 0  0.082541 -0.001273       Inf
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+

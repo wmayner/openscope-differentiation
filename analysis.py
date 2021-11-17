@@ -14,6 +14,7 @@ from matplotlib import pyplot as plt
 from mpl_toolkits.axes_grid1 import Divider, Size
 from mpl_toolkits.axes_grid1.axes_divider import AxesDivider
 
+from load import TIME
 from metadata import METADATA, STIMULUS_METADATA
 
 # Exclude the experiment with twop recording issues
@@ -53,6 +54,19 @@ def savefig(fig, path, suffix=".svg", dpi=300, **kwargs):
     path.parent.mkdir(exist_ok=True, parents=True)
     fig.savefig(path, dpi=dpi, bbox_inches="tight", **kwargs)
     return path
+
+
+def prepare_data_for_r(data, response):
+    # NOTE: modifies data in place
+    # Convert Categoricals to unordered since rpy2 has issues with them
+    data["layer"] = pd.Categorical(data["layer"], categories=data["layer"].cat.categories, ordered=False)
+    data["area"] = pd.Categorical(data["area"], categories=data["area"].cat.categories, ordered=False)
+    # Convert Inf to NaN
+    data.loc[
+        np.isinf(data[response]),
+        response
+    ] = np.nan
+    return data
 
 
 def set_ax_size(width, height, fig=None, ax=None, aspect=False):
@@ -359,7 +373,7 @@ def cohens_d(data, value_col, label_col, a, b):
     return pd.Series(
         {
             "mean difference": mean_diff,
-            "Cohen's d": mean_diff / pooled_std if pooled_std != 0.0 else 0.0,
+            "Cohen's d": (mean_diff / pooled_std) if pooled_std != 0.0 else 0.0,
         }
     )
 
@@ -453,3 +467,50 @@ def layer_area_heatmap(data, value_col, vmin=None, vmax=None):
     grid.set_xticklabels(rotation=45, horizontalalignment="right")
     plt.subplots_adjust(hspace=0.1, wspace=0.1)
     return grid
+
+
+def bin_data(data, bin_length, agg="first", column=TIME):
+    """Bin session data.
+
+    Arguments:
+        data: Data to bin.
+        bin_length: Bin length, in seconds.
+
+    Keyword Arguments:
+        agg: The aggregation to perform.
+
+    NOTE: No checks are performed to ensure that the bins do not span
+          different stimuli. Events should be grouped by stimulus first.
+    """
+    # Convert to ms
+    bin_length = pd.tseries.offsets.Milli(int(1_000 * bin_length))
+    # Resample and aggregate
+    return data.resample(bin_length, on=TIME).agg(agg)
+
+
+def active_frames(data):
+    """Return a boolean index for frames with at least one event."""
+    # Ensure we're only considering event columns
+    data = data.loc[:, get_cells(data)]
+    # Sum over cells
+    data = data.sum(axis="columns")
+    return data > 0
+
+
+def cleanup_grid(grid, hspace=0.1, wspace=0.1):
+    # All but leftmost column
+    for ax in grid.axes[:, 1:].flat:
+        ax.spines["left"].set_visible(False)
+        ax.tick_params(left=False)
+        ax.set_xlabel("")
+    # First column except first row
+    for ax in grid.axes[1:, 0].flat:
+        ax.set_ylabel("")
+    grid.set_titles(row_template="{row_name}", col_template="{col_name}")
+    grid.fig.tight_layout()
+    grid.fig.subplots_adjust(hspace=hspace, wspace=wspace)
+    return grid
+
+
+def binarize(data):
+    return data > 0

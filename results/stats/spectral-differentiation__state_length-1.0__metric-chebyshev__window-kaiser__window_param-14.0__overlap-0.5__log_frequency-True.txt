@@ -1,0 +1,105 @@
+Parameters:
+{'state_length': 1.0, 'metric': 'chebyshev', 'window': 'kaiser', 'window_param': 14.0, 'overlap': 0.5, 'log_frequency': True}
+
+
+================================================================================
+Layer
+================================================================================
+Data: data
+Models:
+reduced_model: `log(normalized differentiation)` ~ 1 + layer + stimulus_type + 
+reduced_model:     (1 | session)
+model: `log(normalized differentiation)` ~ 1 + layer * stimulus_type + 
+model:     (1 | session)
+              Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)    
+reduced_model  6 2457.5 2491.7 -1222.8   2445.5                             
+model          8 2446.3 2491.9 -1215.2   2430.3 15.167      2  0.0005087 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + layer * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                     Estimate Std. Error z value   Pr(>z)    
+L2/3:natural - L2/3:artificial <= 0  0.126462   0.030091   4.203 3.96e-05 ***
+L4:natural - L4:artificial <= 0      0.007318   0.030091   0.243    0.788    
+L5:natural - L5:artificial <= 0     -0.035598   0.031147  -1.143    0.998    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)
+
+
+	 Simultaneous Confidence Intervals
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + layer * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Quantile = -2.1211
+95% family-wise confidence level
+ 
+
+Linear Hypotheses:
+                                    Estimate  lwr       upr      
+L2/3:natural - L2/3:artificial <= 0  0.126462  0.062637       Inf
+L4:natural - L4:artificial <= 0      0.007318 -0.056507       Inf
+L5:natural - L5:artificial <= 0     -0.035598 -0.101662       Inf
+
+
+================================================================================
+Area
+================================================================================
+Data: data
+Models:
+reduced_model: `log(normalized differentiation)` ~ 1 + area + stimulus_type + 
+reduced_model:     (1 | session)
+model: `log(normalized differentiation)` ~ 1 + area * stimulus_type + 
+model:     (1 | session)
+              Df    AIC    BIC  logLik deviance Chisq Chi Df Pr(>Chisq)   
+reduced_model  8 2465.8 2511.4 -1224.9   2449.8                           
+model         12 2459.2 2527.5 -1217.6   2435.2 14.66      4   0.005461 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + area * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                Estimate Std. Error z value  Pr(>z)   
+V1:natural - V1:artificial <= 0  0.03081    0.03885   0.793 0.69976   
+LM:natural - LM:artificial <= 0  0.01488    0.03885   0.383 0.88475   
+AL:natural - AL:artificial <= 0  0.12363    0.04121   3.000 0.00673 **
+PM:natural - PM:artificial <= 0 -0.07499    0.03885  -1.930 1.00000   
+AM:natural - AM:artificial <= 0  0.08699    0.03885   2.239 0.06131 . 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)
+
+
+	 Simultaneous Confidence Intervals
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + area * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Quantile = -2.319
+95% family-wise confidence level
+ 
+
+Linear Hypotheses:
+                                Estimate  lwr       upr      
+V1:natural - V1:artificial <= 0  0.030812 -0.059283       Inf
+LM:natural - LM:artificial <= 0  0.014879 -0.075216       Inf
+AL:natural - AL:artificial <= 0  0.123634  0.028073       Inf
+PM:natural - PM:artificial <= 0 -0.074989 -0.165084       Inf
+AM:natural - AM:artificial <= 0  0.086993 -0.003102       Inf
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+

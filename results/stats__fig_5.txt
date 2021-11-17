@@ -1,0 +1,101 @@
+================================================================================
+Layer
+================================================================================
+Data: data
+Models:
+reduced_model: `log(mean_centroid_distance)` ~ 1 + layer + stimulus_type + (1 | 
+reduced_model:     session)
+model: `log(mean_centroid_distance)` ~ 1 + layer * stimulus_type + (1 | 
+model:     session)
+              Df     AIC     BIC logLik deviance  Chisq Chi Df Pr(>Chisq)    
+reduced_model  6 -4656.7 -4622.5 2334.4  -4668.7                             
+model          8 -4670.9 -4625.3 2343.4  -4686.9 18.135      2  0.0001154 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(mean_centroid_distance)` ~ 1 + layer * stimulus_type + 
+    (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                     Estimate Std. Error z value   Pr(>z)    
+L2/3:natural - L2/3:artificial <= 0  0.030702   0.005962   5.149 3.92e-07 ***
+L4:natural - L4:artificial <= 0      0.010430   0.005962   1.749    0.116    
+L5:natural - L5:artificial <= 0     -0.005786   0.006171  -0.938    0.995    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)
+
+
+	 Simultaneous Confidence Intervals
+
+Fit: lmer(formula = `log(mean_centroid_distance)` ~ 1 + layer * stimulus_type + 
+    (1 | session), data = data, REML = FALSE)
+
+Quantile = -2.1211
+95% family-wise confidence level
+ 
+
+Linear Hypotheses:
+                                    Estimate  lwr       upr      
+L2/3:natural - L2/3:artificial <= 0  0.030702  0.018056       Inf
+L4:natural - L4:artificial <= 0      0.010430 -0.002216       Inf
+L5:natural - L5:artificial <= 0     -0.005786 -0.018876       Inf
+
+
+================================================================================
+Area
+================================================================================
+Data: data
+Models:
+reduced_model: `log(mean_centroid_distance)` ~ 1 + area + stimulus_type + (1 | 
+reduced_model:     session)
+model: `log(mean_centroid_distance)` ~ 1 + area * stimulus_type + (1 | 
+model:     session)
+              Df     AIC     BIC logLik deviance  Chisq Chi Df Pr(>Chisq)   
+reduced_model  8 -4653.4 -4607.8 2334.7  -4669.4                            
+model         12 -4661.6 -4593.3 2342.8  -4685.6 16.232      4   0.002723 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(mean_centroid_distance)` ~ 1 + area * stimulus_type + 
+    (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                  Estimate Std. Error z value   Pr(>z)    
+V1:natural - V1:artificial <= 0  0.0032346  0.0077006   0.420  0.87211    
+LM:natural - LM:artificial <= 0 -0.0003643  0.0077006  -0.047  0.97422    
+AL:natural - AL:artificial <= 0  0.0240174  0.0081677   2.941  0.00816 ** 
+PM:natural - PM:artificial <= 0  0.0011737  0.0077006   0.152  0.94465    
+AM:natural - AM:artificial <= 0  0.0341597  0.0077006   4.436 2.29e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)
+
+
+	 Simultaneous Confidence Intervals
+
+Fit: lmer(formula = `log(mean_centroid_distance)` ~ 1 + area * stimulus_type + 
+    (1 | session), data = data, REML = FALSE)
+
+Quantile = -2.319
+95% family-wise confidence level
+ 
+
+Linear Hypotheses:
+                                Estimate   lwr        upr       
+V1:natural - V1:artificial <= 0  0.0032346 -0.0146227        Inf
+LM:natural - LM:artificial <= 0 -0.0003643 -0.0182216        Inf
+AL:natural - AL:artificial <= 0  0.0240174  0.0050769        Inf
+PM:natural - PM:artificial <= 0  0.0011737 -0.0166836        Inf
+AM:natural - AM:artificial <= 0  0.0341597  0.0163024        Inf
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+

@@ -1,0 +1,105 @@
+Parameters:
+{'state_length': 5.0, 'metric': 'cityblock', 'window': 'tukey', 'window_param': 0.25, 'overlap': 0.125, 'log_frequency': True}
+
+
+================================================================================
+Layer
+================================================================================
+Data: data
+Models:
+reduced_model: `log(normalized differentiation)` ~ 1 + layer + stimulus_type + 
+reduced_model:     (1 | session)
+model: `log(normalized differentiation)` ~ 1 + layer * stimulus_type + 
+model:     (1 | session)
+              Df  AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)  
+reduced_model  6 1581 1615.1 -784.48     1569                           
+model          8 1578 1623.5 -780.99     1562 6.9798      2     0.0305 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + layer * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                    Estimate Std. Error z value Pr(>z)  
+L2/3:natural - L2/3:artificial <= 0  0.06675    0.02470   2.702 0.0103 *
+L4:natural - L4:artificial <= 0      0.01300    0.02470   0.526 0.6561  
+L5:natural - L5:artificial <= 0     -0.02670    0.02557  -1.044 0.9967  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)
+
+
+	 Simultaneous Confidence Intervals
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + layer * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Quantile = -2.1211
+95% family-wise confidence level
+ 
+
+Linear Hypotheses:
+                                    Estimate lwr      upr     
+L2/3:natural - L2/3:artificial <= 0  0.06675  0.01436      Inf
+L4:natural - L4:artificial <= 0      0.01300 -0.03939      Inf
+L5:natural - L5:artificial <= 0     -0.02670 -0.08093      Inf
+
+
+================================================================================
+Area
+================================================================================
+Data: data
+Models:
+reduced_model: `log(normalized differentiation)` ~ 1 + area + stimulus_type + 
+reduced_model:     (1 | session)
+model: `log(normalized differentiation)` ~ 1 + area * stimulus_type + 
+model:     (1 | session)
+              Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)  
+reduced_model  8 1586.2 1631.8 -785.12   1570.2                           
+model         12 1581.1 1649.4 -778.54   1557.1 13.151      4    0.01056 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + area * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                Estimate Std. Error z value Pr(>z)  
+V1:natural - V1:artificial <= 0  0.03619    0.03184   1.137  0.495  
+LM:natural - LM:artificial <= 0 -0.02532    0.03184  -0.795  1.000  
+AL:natural - AL:artificial <= 0  0.05779    0.03377   1.711  0.199  
+PM:natural - PM:artificial <= 0 -0.05522    0.03184  -1.734  1.000  
+AM:natural - AM:artificial <= 0  0.08434    0.03184   2.649  0.020 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)
+
+
+	 Simultaneous Confidence Intervals
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + area * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Quantile = -2.319
+95% family-wise confidence level
+ 
+
+Linear Hypotheses:
+                                Estimate lwr      upr     
+V1:natural - V1:artificial <= 0  0.03619 -0.03765      Inf
+LM:natural - LM:artificial <= 0 -0.02532 -0.09916      Inf
+AL:natural - AL:artificial <= 0  0.05779 -0.02053      Inf
+PM:natural - PM:artificial <= 0 -0.05522 -0.12906      Inf
+AM:natural - AM:artificial <= 0  0.08434  0.01050      Inf
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+

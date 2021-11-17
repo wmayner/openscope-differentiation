@@ -1,0 +1,101 @@
+Parameters:
+{'state_length': 10.0, 'metric': 'euclidean', 'window': 'kaiser', 'window_param': 14.0, 'overlap': 0.5, 'log_frequency': False}
+
+
+================================================================================
+Layer
+================================================================================
+Data: data
+Models:
+reduced_model: `log(normalized differentiation)` ~ 1 + layer + stimulus_type + 
+reduced_model:     (1 | session)
+model: `log(normalized differentiation)` ~ 1 + layer * stimulus_type + 
+model:     (1 | session)
+              Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)    
+reduced_model  6 2851.6 2885.8 -1419.8   2839.6                             
+model          8 2841.3 2886.9 -1412.7   2825.3 14.296      2  0.0007865 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + layer * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                    Estimate Std. Error z value  Pr(>z)   
+L2/3:natural - L2/3:artificial <= 0  0.09481    0.03298   2.875 0.00605 **
+L4:natural - L4:artificial <= 0     -0.04228    0.03298  -1.282 0.99900   
+L5:natural - L5:artificial <= 0     -0.07248    0.03414  -2.123 1.00000   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)
+
+
+	 Simultaneous Confidence Intervals
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + layer * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Quantile = -2.1211
+95% family-wise confidence level
+ 
+
+Linear Hypotheses:
+                                    Estimate lwr      upr     
+L2/3:natural - L2/3:artificial <= 0  0.09481  0.02486      Inf
+L4:natural - L4:artificial <= 0     -0.04228 -0.11224      Inf
+L5:natural - L5:artificial <= 0     -0.07248 -0.14490      Inf
+
+
+================================================================================
+Area
+================================================================================
+Data: data
+Models:
+reduced_model: `log(normalized differentiation)` ~ 1 + area + stimulus_type + 
+reduced_model:     (1 | session)
+model: `log(normalized differentiation)` ~ 1 + area * stimulus_type + 
+model:     (1 | session)
+              Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)
+reduced_model  8 2857.5 2903.0 -1420.7   2841.5                         
+model         12 2857.8 2926.2 -1416.9   2833.8 7.6249      4     0.1063
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + area * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Linear Hypotheses:
+                                Estimate Std. Error z value Pr(>z)
+V1:natural - V1:artificial <= 0 -0.00440    0.04265  -0.103  0.980
+LM:natural - LM:artificial <= 0 -0.05731    0.04265  -1.344  1.000
+AL:natural - AL:artificial <= 0  0.04694    0.04523   1.038  0.556
+PM:natural - PM:artificial <= 0 -0.06873    0.04265  -1.612  1.000
+AM:natural - AM:artificial <= 0  0.06352    0.04265   1.490  0.297
+(Adjusted p values reported -- single-step method)
+
+
+	 Simultaneous Confidence Intervals
+
+Fit: lmer(formula = `log(normalized differentiation)` ~ 1 + area * 
+    stimulus_type + (1 | session), data = data, REML = FALSE)
+
+Quantile = -2.319
+95% family-wise confidence level
+ 
+
+Linear Hypotheses:
+                                Estimate lwr      upr     
+V1:natural - V1:artificial <= 0 -0.00440 -0.10329      Inf
+LM:natural - LM:artificial <= 0 -0.05731 -0.15621      Inf
+AL:natural - AL:artificial <= 0  0.04694 -0.05795      Inf
+PM:natural - PM:artificial <= 0 -0.06873 -0.16763      Inf
+AM:natural - AM:artificial <= 0  0.06352 -0.03537      Inf
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
